@@ -57,7 +57,7 @@ object IntegrityTest {
     val defaultExtractor = ImplIELoader.defaultImplIE
     val fastExtractor = ImplIELoader.fastImplIE
     val recallExtractor = ImplIELoader.highRecallImplIE
-    val precisionExtractor = ImplIELoader.highRecallImplIE
+    val precisionExtractor = ImplIELoader.highPrecisionImplIE
 
     // Run extractors on sentences.
     def runExtractor(extractor: ImplIE) = {
