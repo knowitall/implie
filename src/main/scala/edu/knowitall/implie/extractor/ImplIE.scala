@@ -2,6 +2,7 @@ package edu.knowitall.implie.extractor
 
 import java.util
 
+import edu.knowitall.implie._
 import edu.knowitall.implie.util.{ExtractionUtils, ParseEntry, SerializationUtils}
 import com.typesafe.config.{Config, ConfigFactory}
 import edu.knowitall.repr.sentence
@@ -13,7 +14,6 @@ import edu.knowitall.tool.typer.Type
 import edu.stanford.nlp.ling.{Sentence, _}
 import edu.stanford.nlp.parser.lexparser.LexicalizedParser
 import edu.stanford.nlp.trees._
-import extractor._
 
 import scala.collection.JavaConversions._
 import scala.collection.mutable

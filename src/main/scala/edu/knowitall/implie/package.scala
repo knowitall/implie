@@ -1,3 +1,5 @@
+package edu.knowitall
+
 import edu.knowitall.implie.extractor._
 import edu.knowitall.tool.chunk.ChunkedToken
 import edu.stanford.nlp.trees.{Tree, TypedDependency}
@@ -7,7 +9,7 @@ import scala.collection.mutable
 /**
  * Case Classes and Types used by ImplIE.
  */
-package object extractor {
+package object implie {
   case class Rule(rel: String, gov: String, dep: String)
   case class RawTDLRelation(tdl: List[TypedDependency], tag: ImplicitRelation)
   case class EnclosingPunctuation(open: String, close: String)

@@ -19,10 +19,9 @@ object QuickExample {
     // NOTE: For the example sentences above, the resulting
     // are the same.  In general, however, the default system generates more
     // extractions but with more errors than the fast loading version.
-// TODO: uncomment top one.
-//    val extractor = ImplIELoader.defaultImplIE
-    // Versions that loads faster.
-    val extractor = ImplIELoader.fastImplIE
+    val extractor = ImplIELoader.defaultImplIE
+    // Version that loads faster.
+//    val extractor = ImplIELoader.fastImplIE
 
     for (sentence <- sentences) {
       val extractions = extractor.extractRelations(sentence)
@@ -30,10 +29,12 @@ object QuickExample {
 
       for (extraction <- extractions) {
         println(s"extraction: $extraction")
-        println(extraction.head)
-        println(extraction.tag)
-        println(extraction.relation)
-        println(extraction.tag)
+        // Extraction information broken down.
+        println(s"tag term: ${extraction.tag.text}, tag class:" +
+          s" ${extraction.relation}, extraction(NP): ${extraction.np}")
+        // Get the head word for just the entity.
+        // NOTE: the head is only a single token.  Will not include full names.
+        println(s"head word: ${extraction.head}")
       }
       println()
     }

@@ -1,13 +1,14 @@
 package edu.knowitall.implie.extractor
 
+import edu.knowitall.implie.{Rule, ExpansionFunction}
 import edu.knowitall.tool.chunk.ChunkedToken
 import edu.stanford.nlp.trees.TypedDependency
-import extractor.{ExpansionFunction, Rule}
 
 /**
- * Created by Gene on 12/31/2014.
+ * Filtered dependency relation expansions.
+ * Expansions must be the correct relation and satisfy some syntactic
+ * constraint.
  */
-
 class ExpansionFunctions {
 
   private var id = ""
