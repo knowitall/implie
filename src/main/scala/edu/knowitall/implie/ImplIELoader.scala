@@ -32,7 +32,7 @@ object ImplIELoader {
       case None =>
         val highPrecisionImplIE =
           new HighPrecisionImplIE(TaggerLoader.highPrecisionTagger)
-        implieMemo.put(highRecallKey, highPrecisionImplIE)
+        implieMemo.put(highPrecisionKey, highPrecisionImplIE)
         highPrecisionImplIE
     }
   }

@@ -48,6 +48,10 @@ object IntegrityTest {
       .map(item => CompItem(item.tup, cleanSentence(item.sentence)))
       .toSet
 
+    // Create output file.
+    val resultFilename = "test_result_" + sdf.format(new Date(System.currentTimeMillis()))
+    val out = new PrintWriter(new File(testResultDir + resultFilename))
+
     // Load extractors.
     println("Loading extractors for test...")
     val defaultExtractor = ImplIELoader.defaultImplIE
@@ -70,17 +74,18 @@ object IntegrityTest {
       Results(correct, incorrect, neither)
     }
 
+    println("Running default extractor")
     val defaultResults = runExtractor(defaultExtractor)
+    println("Running fast extractor")
     val fastResults = runExtractor(fastExtractor)
+    println("Running high recall extractor")
     val recallResults = runExtractor(recallExtractor)
+    println("Running high precision extractor")
     val precisionResults = runExtractor(precisionExtractor)
 
-    val resultFilename = "test_result_" + sdf.format(new Date(System.currentTimeMillis()))
-    val out = new PrintWriter(new File(testResultDir + resultFilename))
     println(s"Writing detailed results to ${testResultDir + resultFilename}")
 
     def printResults(results: Results) {
-      out.println()
       out.println("Neither Correct nor Incorrect")
       out.println(results.neither.map(c =>
         s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
@@ -98,6 +103,7 @@ object IntegrityTest {
         s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
         .mkString("\n"))
       out.println()
+      out.println()
     }
 
     def printSummary(results: Results) {
@@ -106,12 +112,12 @@ object IntegrityTest {
       val n = results.neither.size
       val t = c + i + n
       out.println("Summary")
-      out.println(s"preicision ${c / t}")
+      out.println(s"precision ${c / t}")
       out.println(s"total extractions $t")
       out.println()
 
       println("Summary")
-      println(s"preicision ${c / t}")
+      println(s"precision ${c / t}")
       println(s"total extractions $t")
       println()
     }
@@ -121,17 +127,17 @@ object IntegrityTest {
     printResults(defaultResults)
     printSummary(defaultResults)
 
-    println("Default extractor results.")
+    println("Fast extractor results.")
     out.println("Fast extractor results.")
     printResults(fastResults)
     printSummary(fastResults)
 
-    println("Default extractor results.")
+    println("High recall extractor results.")
     out.println("High recall extractor results.")
     printResults(recallResults)
     printSummary(recallResults)
 
-    println("Default extractor results.")
+    println("High precision extractor results.")
     out.println("High precision extractor results.")
     printResults(precisionResults)
     printSummary(precisionResults)
