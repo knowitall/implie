@@ -37,7 +37,7 @@ object EntityExtractionFunctions {
     tag: TagInfo,
     tokenizedSentence: Seq[ChunkedToken],
     sentence: String,
-    extractor: ImplIE): IndexedSubstring = {
+    extractor: ImplIEBase): IndexedSubstring = {
 
     if (tdl.size == 0) {
       return null
@@ -86,7 +86,7 @@ object EntityExtractionFunctions {
     tag: TagInfo,
     tokenizedSentence: Seq[ChunkedToken],
     sentence: String,
-    extractor: ImplIE): IndexedSubstring = {
+    extractor: ImplIEBase): IndexedSubstring = {
 
     if (tdl.size == 0) {
       return null
@@ -144,7 +144,7 @@ object EntityExtractionFunctions {
     tag: TagInfo,
     tokenizedSentence: Seq[ChunkedToken],
     sentence: String,
-    extractor: ImplIE): IndexedSubstring = {
+    extractor: ImplIEBase): IndexedSubstring = {
 
     if (tdl.size == 0) {
       return null
@@ -190,7 +190,7 @@ object EntityExtractionFunctions {
      tag: TagInfo,
      tokenizedSentence: Seq[ChunkedToken],
      sentence: String,
-     extractor: ImplIE): IndexedSubstring = {
+     extractor: ImplIEBase): IndexedSubstring = {
 
     /*
     Expand tag to the parent if the parent is an NP.
@@ -375,7 +375,7 @@ object EntityExtractionFunctions {
    */
   def extendToEnclosePunctuation(tree: Tree, sentence: String, start: Int, end: Int,
     firstWordIndex: Int, lastWordIndex: Int,
-    extractor: ImplIE): (Int, Int, Int) = {
+    extractor: ImplIEBase): (Int, Int, Int) = {
     val tokens = ExtractionUtils.phraseTokensFromTree(tree)
     val chunks = extractor.getTokens(sentence) // token chunks
     extractor.getEnclosingPunctuation.foldLeft(start, end, lastWordIndex)((punctAcc, punctCur) => {

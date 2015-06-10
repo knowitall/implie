@@ -1,7 +1,8 @@
-package edu.knowitall.implie.extractor
+package edu.knowitall.implie
 
+import edu.knowitall.implie.extractor.{BasicFilterFunctions, ImplIENoLists, ImplicitRelation}
 import edu.knowitall.repr.sentence
-import edu.knowitall.repr.sentence.{Lemmatized, Chunked}
+import edu.knowitall.repr.sentence.{Chunked, Lemmatized}
 import edu.knowitall.taggers.TaggerCollection
 
 /**

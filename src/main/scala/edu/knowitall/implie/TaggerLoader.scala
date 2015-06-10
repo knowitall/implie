@@ -1,6 +1,6 @@
-package edu.knowitall.implie.extractor
+package edu.knowitall.implie
 
-import com.typesafe.config.{ConfigFactory, Config}
+import com.typesafe.config.{Config, ConfigFactory}
 import edu.knowitall.repr.sentence._
 import edu.knowitall.taggers.{ParseRule, TaggerCollection}
 import edu.knowitall.tool.chunk.OpenNlpChunker

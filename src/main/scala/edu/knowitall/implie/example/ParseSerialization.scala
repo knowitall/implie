@@ -1,6 +1,7 @@
 package edu.knowitall.implie.example
 
-import edu.knowitall.implie.extractor.{ImplIE, TaggerLoader}
+import edu.knowitall.implie.TaggerLoader
+import edu.knowitall.implie.extractor.ImplIEBase
 import edu.knowitall.implie.util.ParseEntry
 import edu.knowitall.tool.chunk.ChunkedToken
 import edu.stanford.nlp.ling.{Sentence, Word}
@@ -116,7 +117,7 @@ object ParseSerialization {
 
   def testTiming(sentence: String) = {
     val tagger = TaggerLoader.highPrecisionTagger
-    val extractor = new ImplIE(tagger)
+    val extractor = new ImplIEBase(tagger)
     val parser = LexicalizedParser.loadModel("models/englishPCFG.ser.gz")
 
     val start = System.nanoTime()

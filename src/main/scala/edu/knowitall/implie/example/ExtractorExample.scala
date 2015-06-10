@@ -1,6 +1,6 @@
 package edu.knowitall.implie.example
 
-import edu.knowitall.implie.extractor.{HighRecallImplIE, TaggerLoader}
+import edu.knowitall.implie.{TaggerLoader, HighRecallImplIE}
 
 /**
  * Example use of the extractor.

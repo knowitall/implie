@@ -2,7 +2,7 @@ package edu.knowitall.implie.util
 
 import edu.knowitall.tool.typer.Type
 import edu.stanford.nlp.trees.TypedDependency
-import edu.knowitall.implie.extractor.{ImplIE, TagInfo}
+import edu.knowitall.implie.extractor.{ImplIEBase, TagInfo}
 
 import scala.collection.mutable
 
@@ -11,7 +11,7 @@ import scala.collection.mutable
  * including verbose output and the extraction trace.
  */
 object ExtractionFormatUtils {
-  def verboseOutput(extractor: ImplIE)(src: String) = {
+  def verboseOutput(extractor: ImplIEBase)(src: String) = {
     // Parse tree + dependency list
     val parse = extractor.getParse(src)
     val builder = new mutable.StringBuilder
@@ -22,7 +22,7 @@ object ExtractionFormatUtils {
     builder.mkString
   }
 
-  def extractionInfo(extractor: ImplIE)(src: String): String = {
+  def extractionInfo(extractor: ImplIEBase)(src: String): String = {
     def printHops(map: Map[TagInfo, List[List[TypedDependency]]], builder: StringBuilder) {
       for ((k, v) <- map) {
         builder.append(s"Tag: ${k.text} has tag ${k.tag}\tDependency Hops:\t")
