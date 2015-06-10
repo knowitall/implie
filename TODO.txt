@@ -17,5 +17,3 @@ export on sbt to make available on maven
 Test the highRecallTagger with less memory (java or sbt settings) and see how long it takes to load.
 
 Complete README.  Move the file structure info in there.
-
-Move ImplIE, versions and TaggerLoader to implie directory.
