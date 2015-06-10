@@ -25,7 +25,7 @@ object IntegrityTest {
   case class Results(correct: Set[CompItem], incorrect: Set[CompItem], neither: Set[CompItem])
 
   val resourceDir = "src/main/resources/test/"
-  val testResultDir = "test_results/"
+  val testResultDir = "test_files/test_results/"
   val sdf = new SimpleDateFormat("MM-dd-yyyy_HH:mm")
 
   def cleanSentence(sentence: String) = {
@@ -123,7 +123,6 @@ object IntegrityTest {
       println("Summary")
       println(s"precision ${c / t}")
       println(s"total extractions $t")
-      println(s"c $c\ti $i\tn $n")
       println()
     }
 
