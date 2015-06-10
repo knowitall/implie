@@ -27,7 +27,7 @@ import scala.collection.mutable
  *
  * The rules for the extraction are in resources/high-precision-edu.knowitall.implie.extractor.conf.
  */
-class ImplIEBase(
+class ImplIE(
     tagger: TaggerCollection[sentence.Sentence with Chunked with Lemmatized],
     serializedTokenCacheFile: String = null,
     serializedParseCacheFile: String = null,

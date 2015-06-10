@@ -21,7 +21,7 @@ class ImplIENoLists(
     serializedTokenCacheFile: String = null,
     serializedParseCacheFile: String = null,
     extractorConfig: String = "high-precision-extractor.conf")
-    extends ImplIEBase(
+    extends ImplIE(
     tagger, serializedTokenCacheFile, serializedParseCacheFile, extractorConfig)
     with NERFilterByTagNER {
 
