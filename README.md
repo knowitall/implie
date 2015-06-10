@@ -17,13 +17,22 @@ The out-of-the-box ImplIE system extracts the following binary relations:
     (Athens International Airport; has city; Athens)
 
 ## Building
-Install [sbt](http://www.scala-sbt.org/release/tutorial/Setup.html).  Enter the root directory of this repository and
+ImplIE uses Java 8 and the sbt build system.  Install [sbt](http://www.scala-sbt.org/release/tutorial/Setup.html).  Enter the root directory of this repository and
 run command
 
-    sbt
+    sbt compile
     
 This will take a while the first time since it will download and resolve all the dependencies.
 
+## Using ImplIE as a Dependency
+ImplIE can be added as a dependency in sbt by adding the following to the libraryDependencies.
+
+    libraryDependencies ++= Seq(
+        // other dependencies...
+        "edu.washington.cs.knowitall.implie" %% "implie" % "1.0.0",
+        // other dependencies...
+    )
+    
 ## Running
 TODO
 
@@ -36,12 +45,6 @@ TODO
 
 ### Caching parses to speed up repeated extractions
 TODO
-
-## Using ImplIE as a Dependency
-TODO
-
-## Contact
-To contact UW about ImplIE, email [find email for contact]
 
 ## Citing ImplIE
 TODO: add bibTex when paper is published
