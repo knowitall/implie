@@ -125,22 +125,22 @@ object IntegrityTest {
     println("Default extractor results.")
     out.println("Default extractor results.")
     printResults(defaultResults)
-    //printSummary(defaultResults)
+    printSummary(defaultResults)
 
     println("Fast extractor results.")
     out.println("Fast extractor results.")
     printResults(fastResults)
-    //printSummary(fastResults)
+    printSummary(fastResults)
 
     println("High recall extractor results.")
     out.println("High recall extractor results.")
     printResults(recallResults)
-    //printSummary(recallResults)
+    printSummary(recallResults)
 
     println("High precision extractor results.")
     out.println("High precision extractor results.")
     printResults(precisionResults)
-    //printSummary(precisionResults)
+    printSummary(precisionResults)
 
     // TODO: Get expected results and print out what extractions we now get wrong, and what we now get right in comparison.
     // TODO: Test that precision and total extractions is at least what we had before.
