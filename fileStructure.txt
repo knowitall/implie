@@ -1,0 +1,45 @@
+File Structure
+
+classTermLists/
+    Files that contain terms that identify with a class.
+    File names are [class name].txt.
+    The terms are listed in random casing, and may be pluralized (not normalized).
+
+		runfiles/
+				Files currently used for development.
+				The tests files will only account for results in this folder.
+				NOTE: FILES IN THIS FOLDER MAY BE DIFFERENT FROM OTHERS
+							EVEN THOUGH THE FILE NAMES ARE THE SAME
+
+devSet/
+    Development set for the Implicit Relation Extractor.
+	
+		sentences.txt
+				One sentence per line. (Don't really need to be sentences though... it just processes the line.)
+
+		solutions.txt
+				One entity (i.e. solution for one sentence) per line.
+				Each token is separated by a tab.
+				Each line is formatted so that each class of terms is preceded
+				by the class tag "CLASS:".  Each term is preceded with term tag "TERM:".
+				Each set of acceptable noun phrases are preceded with the tag "NP:".
+				Each noun phrase is separated by a pipe "|".  Each noun phrase and term
+				is followed by a semicolon and the index in the sentence, 
+				according to the Stanford parser of the last word of that term or phrase.
+				Each class tag can be followed by multiple term and np tag pairs,
+				but a noun phrase tag must follow a term tag.
+
+				Example:
+						CLASS:religion	TERM:christian;5	NP:minister;6|christian minister;6
+
+				NOTE: solutions are made depedant on the files in classTermLists/runfiles.
+							There are some answers that seem to be missing because the term is not
+							listed in any of the terms in runfiles.
+
+    readable/
+				NOT UP TO DATE, IGNORE THESE FILES
+				Development set written in a human readable format
+
+testSet/
+		Same as devSet, but these are for testing after development to make sure it generalizes well.
+

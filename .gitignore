@@ -1,0 +1,9 @@
+.idea/
+.*.swp
+target/
+.~lock*
+*.iml
+cache/
+.nfs*
+.classpath
+.project
