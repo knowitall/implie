@@ -111,9 +111,9 @@ object IntegrityTest {
     }
 
     def printSummary(results: Results) {
-      val c = results.correct.size
-      val i = results.incorrect.size
-      val n = results.neither.size
+      val c = results.correct.size.toFloat
+      val i = results.incorrect.size.toFloat
+      val n = results.neither.size.toFloat
       val t = c + i + n
       out.println("Summary")
       out.println(s"precision ${c / t}")
