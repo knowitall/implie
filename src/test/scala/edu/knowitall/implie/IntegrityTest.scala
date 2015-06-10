@@ -12,6 +12,10 @@ import scala.io.Source
  * Integrity Test for ImplIE.
  * For purposes of checking that the ImplIE system is working as intended
  * after any changes.
+ *
+ * NOTE: because of results caching, the high-recall extractor and
+ * high-precision extractor will seem to run much faster than the default and
+ * fast extractor.  However, one their own their runtime will be about the same.
  */
 object IntegrityTest {
 
@@ -119,6 +123,7 @@ object IntegrityTest {
       println("Summary")
       println(s"precision ${c / t}")
       println(s"total extractions $t")
+      println(s"c $c\ti $i\tn $n")
       println()
     }
 
