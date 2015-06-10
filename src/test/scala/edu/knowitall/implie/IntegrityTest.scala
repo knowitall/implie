@@ -30,8 +30,8 @@ object IntegrityTest {
 
   def main(args: Array[String]) {
     // Load sentences and answerkey
-    val sentences = Source.fromFile(resourceDir + "sentences").getLines()
-    val answerkey = Source.fromFile(resourceDir + "answerkey").getLines()
+    val sentences: List[String] = Source.fromFile(resourceDir + "sentences").getLines().toList
+    val answerkey: List[String] = Source.fromFile(resourceDir + "answerkey").getLines().toList
 
     // Generate answerkey structures
     val answerkeyTokens = answerkey.map(l => {
