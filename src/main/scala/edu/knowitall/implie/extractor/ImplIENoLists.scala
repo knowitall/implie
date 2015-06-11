@@ -71,16 +71,16 @@ class ImplIENoLists(
 
       rel.explicitRelationTraces.foreach(ert => {
         
-         var countConjAnd = 0
-         var countAppos = 0  
-        ert.foreach(t => {  
-          if(t.toString.contains("conj_and")) countConjAnd += 1 
-          if(t.toString.contains("appos")) countAppos += 1          
+        var countConjAnd = 0
+        var countAppos = 0
+        ert.foreach(t => {
+          if(t.toString.contains("conj_and")) countConjAnd += 1
+          if(t.toString.contains("appos")) countAppos += 1
         })
-       if(countConjAnd >= 1 || countAppos >= 2 || countConjAnd + countAppos >=2 ){
-         rel.relation = "dropThisRelation"
-       }
-         
+        if(countConjAnd >= 1 || countAppos >= 2 || countConjAnd + countAppos >=2 ){
+          rel.relation = "dropThisRelation"
+        }
+
       }) 
 
       rel
