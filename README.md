@@ -38,19 +38,6 @@ Then ImplIE can locally be added as a dependency in sbt by adding the following 
         "edu.washington.cs.knowitall.implie" %% "implie" % "1.0.0-SNAPSHOT",
         // other dependencies...
     )
-    
-## Running
-TODO
-
-## Options
-### High-recall and High-precision Versions
-TODO
-
-### Adding Custom Keywords
-TODO
-
-### Caching parses to speed up repeated extractions
-TODO
 
 ## Citing ImplIE
 TODO: add bibTex when paper is published
