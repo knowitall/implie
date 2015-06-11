@@ -6,6 +6,8 @@ import java.util.Date
 
 import edu.knowitall.implie.extractor.ImplIE
 
+import scala.collection.mutable
+import scala.collection.mutable.ListBuffer
 import scala.io.Source
 
 /**
@@ -23,13 +25,75 @@ object IntegrityTest {
   case class AKitem(tup: OutTuple, correct: String, incorrect: String, sentence: String)
   case class CompItem(tup: OutTuple, sentence: String)
   case class Results(correct: Set[CompItem], incorrect: Set[CompItem], neither: Set[CompItem])
+  case class Performance(precision: Double, extractions: Int)
+  case class SystemData(name: String, implie: ImplIE, results: Results, expected: Results)
 
   val resourceDir = "src/main/resources/test/"
   val testResultDir = "test_files/test_results/"
   val sdf = new SimpleDateFormat("MM-dd-yyyy_HH:mm")
+  val expectedFile = "test_files/version_results/v1.0.0-SNAPSHOT_results"
+
+  val outputSeparator = "----DONE----"
+
+  val headers = List("Neither Correct nor Incorrect", "Correct Results", "Incorrect Results")
+  val stateChange = Map[String, String]("default" -> "neither", "neither" -> "correct", "correct" -> "incorrect")
+
+  var precisionPass = true
+  var extractionNumPass = true
+  var discrepanciesPass = true
+
+  // Expected performance info.
+  def loadExpectedResults(filename: String) = {
+    val file = Source.fromFile(filename).mkString
+    val resultList: List[String] = file.split(outputSeparator).toList
+      .filter(str => str.trim() != "")
+
+    val expectedResults = mutable.Map[String, Results]()
+    for (result <- resultList) {
+      val lines = result.split("\n").toList
+        .map(l => l.trim.replaceAll("\r", "")).filter(l => l != "")
+      val name = lines(0)
+
+      var state = "default"
+      val binnedItems = Map[String, mutable.ListBuffer[CompItem]](
+        "neither" -> new ListBuffer(),
+        "correct" -> new ListBuffer(),
+        "incorrect" -> new ListBuffer()
+      )
+
+      for (line <- lines) {
+        val tokens = line.split("\t")
+        if (tokens.size == 4) {
+          // Is a result add to the results.
+          val tup = OutTuple(tokens(0), tokens(1), tokens(2))
+          binnedItems(state).append(CompItem(tup, tokens(3)))
+        } else if(headers.contains(line.trim())) {
+          // Transition point.
+          state = stateChange(state)
+        }
+      }
+      expectedResults.put(name,
+        Results(binnedItems("correct").toSet, binnedItems("incorrect").toSet,
+          binnedItems("neither").toSet))
+    }
+    expectedResults.toMap
+  }
+
+  def resultsToPerformance(results: Results) = {
+    val c = results.correct.size.toFloat
+    val i = results.incorrect.size.toFloat
+    val n = results.neither.size.toFloat
+    val t = c + i + n
+    Performance(c / t, math.round(t))
+  }
 
   def cleanSentence(sentence: String) = {
     sentence.replaceAll("\"", "")
+  }
+
+  def printlnBoth(out: PrintWriter, str: String) {
+    println(str)
+    out.println(str)
   }
 
   def main(args: Array[String]) {
@@ -39,7 +103,7 @@ object IntegrityTest {
 
     // Generate answerkey structures
     val answerkeyTokens = answerkey.map(l => {
-      val toks = l.split("\t")
+      val toks = l.toLowerCase.split("\t")
       val tup = OutTuple(toks(0), toks(1), toks(2))
       AKitem(tup, toks(3), toks(4), toks(5))
     })
@@ -53,7 +117,7 @@ object IntegrityTest {
       .toSet
 
     // Create output file.
-    val resultFilename = "test_result_" + sdf.format(new Date(System.currentTimeMillis()))
+    val resultFilename = "test_result_" + sdf.format(new Date(System.currentTimeMillis())).replaceAll(":", "-")
     val out = new PrintWriter(new File(testResultDir + resultFilename))
 
     // Load extractors.
@@ -63,33 +127,20 @@ object IntegrityTest {
     val recallExtractor = ImplIELoader.highRecallImplIE
     val precisionExtractor = ImplIELoader.highPrecisionImplIE
 
-    // Run extractors on sentences.
-    def runExtractor(extractor: ImplIE) = {
-      val extractions = sentences.map(s => extractor.extractRelations(s)).toList.flatten
-      // Turn the extractions into comparable items.
-      val compExtractions = extractions.map(e => {
-        val tup = OutTuple(e.np.toString, e.relation, e.tag.asIndexedString.toString)
-        CompItem(tup, cleanSentence(e.sentence))
-      }).toSet
+    val expectedResults = loadExpectedResults(expectedFile)
+    val expectedPerformance =
+      expectedResults map {case (k, v) => (k, resultsToPerformance(v))}
 
-      val correct = compExtractions & correctset
-      val incorrect = compExtractions & incorrectset
-      val neither = compExtractions -- (correct | incorrect)
-      Results(correct, incorrect, neither)
-    }
-
-    println("Running default extractor")
-    val defaultResults = runExtractor(defaultExtractor)
-    println("Running fast extractor")
-    val fastResults = runExtractor(fastExtractor)
-    println("Running high recall extractor")
-    val recallResults = runExtractor(recallExtractor)
-    println("Running high precision extractor")
-    val precisionResults = runExtractor(precisionExtractor)
-
-    println(s"Writing detailed results to ${testResultDir + resultFilename}")
+    val systemMap = mutable.Map[String, SystemData](
+      "default" -> SystemData("default", defaultExtractor, null, expectedResults("default")),
+      "fast" -> SystemData("fast", fastExtractor, null, expectedResults("fast")),
+      "recall" -> SystemData("recall", recallExtractor, null, expectedResults("recall")),
+      "precision" -> SystemData("precision", precisionExtractor, null, expectedResults("precision"))
+    )
 
     def printResults(results: Results) {
+      println("Results will be printed in file, but not here for brevity.")
+
       out.println("Neither Correct nor Incorrect")
       out.println(results.neither.map(c =>
         s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
@@ -110,45 +161,146 @@ object IntegrityTest {
       out.println()
     }
 
-    def printSummary(results: Results) {
-      val c = results.correct.size.toFloat
-      val i = results.incorrect.size.toFloat
-      val n = results.neither.size.toFloat
-      val t = c + i + n
-      out.println("Summary")
-      out.println(s"precision ${c / t}")
-      out.println(s"total extractions $t")
-      out.println()
-
-      println("Summary")
-      println(s"precision ${c / t}")
-      println(s"total extractions $t")
-      println()
+    def printSummary(results: Results) = {
+      val perf = resultsToPerformance(results)
+      printlnBoth(out, "Summary")
+      printlnBoth(out, s"precision ${perf.precision}")
+      printlnBoth(out, s"total extractions ${perf.extractions}")
+      printlnBoth(out, "")
+      perf
     }
 
-    println("Default extractor results.")
-    out.println("Default extractor results.")
-    printResults(defaultResults)
-    printSummary(defaultResults)
+    // Run extractors on sentences.
+    def runExtractor(extractor: ImplIE) = {
+      val extractions = sentences.map(s => extractor.extractRelations(s)).toList.flatten
+      // Turn the extractions into comparable items.
+      val compExtractions = extractions.map(e => {
+        val tup = OutTuple(e.np.toString.toLowerCase, e.relation.toLowerCase,
+          e.tag.asIndexedString.toString.toLowerCase)
+        CompItem(tup, cleanSentence(e.sentence.toLowerCase))
+      }).toSet
 
-    println("Fast extractor results.")
-    out.println("Fast extractor results.")
-    printResults(fastResults)
-    printSummary(fastResults)
+      val correct = compExtractions & correctset
+      val incorrect = compExtractions & incorrectset
+      val neither = compExtractions -- (correct | incorrect)
+      Results(correct, incorrect, neither)
+    }
 
-    println("High recall extractor results.")
-    out.println("High recall extractor results.")
-    printResults(recallResults)
-    printSummary(recallResults)
 
-    println("High precision extractor results.")
-    out.println("High precision extractor results.")
-    printResults(precisionResults)
-    printSummary(precisionResults)
+    // Run and score each extractor.
+    println(s"Writing detailed results to ${testResultDir + resultFilename}")
+    for ((name, sysdata) <- systemMap) {
+      // Just check number of extractions and precision first.
+      println()
+      println("---------------------------------------------------")
+      println(s"Running $name extractor")
+      val results = runExtractor(sysdata.implie)
+      systemMap.put(name, SystemData(sysdata.name, sysdata.implie, results, sysdata.expected))
 
-    // TODO: Get expected results and print out what extractions we now get wrong, and what we now get right in comparison.
-    // TODO: Test that precision and total extractions is at least what we had before.
+      // Print results to file and get summary.
+      printlnBoth(out, "Extractor results")
+      printResults(results)
+      printlnBoth(out, "")
+      val perf = printSummary(results)
+      out.println(outputSeparator)
 
+      // Check if precision and number of extractions is at least what we
+      // expect.
+      val exp = expectedResults(name)
+      val expPerf = resultsToPerformance(exp)
+      if (expPerf.precision > perf.precision) {
+        precisionPass = false
+        println("!!!FAIL: current precision is worse than expected!!!")
+        println(s"expected: ${expPerf.precision}\tactual: ${perf.precision}")
+      }
+      if (expPerf.extractions > perf.extractions) {
+        extractionNumPass = false
+        println("!!!FAIL: current number of extractions is worse than expected!!!")
+        println(s"expected: ${expPerf.extractions}\tactual: ${perf.extractions}")
+      }
+
+      // Check differences in the actual extractions.
+      // Make lowercase.
+      def lowerItem(item: CompItem) = {
+        CompItem(OutTuple(item.tup.np.toLowerCase, item.tup.relation.toLowerCase,
+          item.tup.tag.toLowerCase), item.sentence.toLowerCase)
+      }
+      val lowerexp = Results(exp.correct.map(lowerItem),
+        exp.incorrect.map(lowerItem), exp.neither.map(lowerItem))
+      val lowerresults = Results(results.correct.map(lowerItem),
+        results.incorrect.map(lowerItem), results.neither.map(lowerItem))
+
+      val newcor = lowerresults.correct -- lowerexp.correct
+      val missingcor = lowerexp.correct -- lowerresults.correct
+      val newincor = lowerresults.incorrect -- lowerexp.incorrect
+      val missingincor = lowerexp.incorrect -- lowerresults.incorrect
+
+      // Print out discrepancies.
+      if (newcor.size == 0 && missingcor.size == 0 && newincor.size == 0 &&
+          missingincor.size == 0 && results.neither.size == 0 &&
+          exp.neither.size == 0) {
+        printlnBoth(out, "No discrepancies between current and expected extractions.")
+      } else {
+        discrepanciesPass = false
+        printlnBoth(out, "Discrepancies between current and expected extractions.")
+
+        if (newcor.size != 0) {
+          printlnBoth(out, "Correct now, not in expected.")
+          printlnBoth(out, newcor.map(c =>
+            s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
+            .mkString("\n"))
+        }
+
+        if (missingcor.size != 0) {
+          printlnBoth(out, "Expected correct, but not now.")
+          printlnBoth(out, missingcor.map(c =>
+            s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
+            .mkString("\n"))
+        }
+
+        if (newincor.size != 0) {
+          printlnBoth(out, "Incorrect now, not in expected.")
+          printlnBoth(out, newincor.map(c =>
+            s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
+            .mkString("\n"))
+        }
+
+        if (missingincor.size != 0) {
+          printlnBoth(out, "Incorrect in expected, not now.")
+          printlnBoth(out, missingincor.map(c =>
+            s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
+            .mkString("\n"))
+        }
+
+        if (results.neither.size != 0) {
+          printlnBoth(out, "Not found.")
+          printlnBoth(out, results.neither.map(c =>
+            s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
+            .mkString("\n"))
+        }
+
+        if (exp.neither.size != 0) {
+          printlnBoth(out, "Not found in expected")
+          printlnBoth(out, exp.neither.map(c =>
+            s"${c.tup.np}\t${c.tup.relation}\t${c.tup.tag}\t${c.sentence}")
+            .mkString("\n"))
+        }
+      }
+    }
     out.close()
+
+    println("---------------------------------------------------")
+    if (precisionPass && extractionNumPass) {
+      println("PASS: All test pass!")
+    }
+    if (!discrepanciesPass) {
+      println("WARNING: There were some discrepancies between the expected and actual extractions.")
+    }
+    if (!precisionPass) {
+      println("FAIL: One of the systems got less than expected precision.")
+    }
+    if (!extractionNumPass) {
+      println("FAIL: One of the systems got less than expected number of extractions.")
+    }
   }
 }

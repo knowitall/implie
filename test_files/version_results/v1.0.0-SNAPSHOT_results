@@ -1,4 +1,5 @@
-Default extractor results.
+default
+Extractor results.
 Neither Correct nor Incorrect
 
 
@@ -28,7 +29,7 @@ Paul Taylor, chief economist-5	jobTitle	chief economist-5	Paul Taylor, chief eco
 External Relations Commissioner Benita Ferrero-Waldner-30	jobTitle	commissioner-28	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 the US economy-7	nationality	the us-6	But with with the US economy slowing while growth elsewhere in the world remains resilient, the dollar will be pressured, he added.
 Saudi oil supertanker-7	nationality	saudi-5	The owner of a Saudi oil supertanker hijacked by Somali pirates over the weekend said the 25 crew members are safe and the ship is fully loaded with crude -- a cargo worth about $100 million at current prices.
-Los Angeles archdiocese-10	city	los angeles-9	His comments came two days after the Los Angeles archdiocese agreed to a record 660 million dollar (480 million euro) payout to 508 people who were sexually abused by priests i    n cases dating back to the 1940s.
+Los Angeles archdiocese-10	city	los angeles-9	His comments came two days after the Los Angeles archdiocese agreed to a record 660 million dollar (480 million euro) payout to 508 people who were sexually abused by priests in cases dating back to the 1940s.
 John Alaimo, manager of a taxi repair shop-9	jobTitle	manager-4	John Alaimo, manager of a taxi repair shop in the Manhattan neighborhood, said the fans only blow hot air around, doing little to keep his mechanics cool.
 status of Kosovo-51	nationality	kosovo-51	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 Athens International Airport-15	city	athens-13	French journalist Paul Legall reported that all three hostages arrived safely at Athens International Airport.
@@ -42,18 +43,20 @@ Solomon Islands Prime Minister Manasseh Sogavare-11	jobTitle	prime minister-9	Th
 Dakhil Qassim, the mayor of the nearby town of Sinjar-21	jobTitle	mayor-15	Some 300 people were wounded in the blasts, said Dakhil Qassim, the mayor of the nearby town of Sinjar.
 Mayor Adrian M. Fenty-4	jobTitle	mayor-1	Mayor Adrian M. Fenty said he wanted a catchphrase that braids the themes of unity, energy and renaissance.
 French journalist Paul Legall-4	nationality	french-1	French journalist Paul Legall reported that all three hostages arrived safely at Athens International Airport.
+Spanish ad-7	nationality	spanish-6	Obama countered with his own Spanish ad linking McCain to the extreme-right Republican wing, widely seen as anti-immigrant.
 
 Incorrect Results
 Jordan Staal-2	nationality	jordan-1	Jordan Staal scored a power-play goal in the second period and Pittsburgh goalie Marc-Andre Fleury made 26 saves, giving the Penguins a 2-0 victory Sunday over New York Rangers and a home- ice sweep of the first two games of their second-round NHL playoff series.
 German Foreign Minister Frank-Walter Steinmeier, whose country-8	jobTitle	foreign minister-3	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 border town of Rafah-33	city	rafah-33	Some Palestinians were seen to use a bulldozer trying to open new passages into Egypt at the Egyptian- Gaza border on Friday as Egyptian troops moved to close the border town of Rafah, the pan- Arab television al-Jazeera reported.
-Spanish ad-7	nationality	spanish-6	Obama countered with his own Spanish ad linking McCain to the extreme-right Republican wing, widely seen as anti-immigrant.
 King breakfast-52	jobTitle	king-51	Dr. King had become very unpopular before his death, talking about things that black men did not have the right to talk about, George Hulse, aboard member of the Caribbean American Chamber of Commerce and Industry, said over bagels Friday at the chamber's King breakfast.
 German Foreign Minister Frank-Walter Steinmeier, whose country-8	nationality	german-1	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 Justice Department-14	jobTitle	justice-13	John Arterberry, executive deputy chief of the fraud section in the Justice Department, said federal prosecutors and the FBI had made progress on mortgage fraud.
 presidency of the EU-15	nationality	eu-15	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
+----DONE----
 
-Fast extractor results.
+fast
+Extractor results.
 Neither Correct nor Incorrect
 
 
@@ -81,7 +84,7 @@ Egyptian- Gaza border-20	city	Gaza-19	Some Palestinians were seen to use a bulld
 Russia Aluminum (RUSAL)-25	nationality	Russia-21	Gunmen have killed a driver and kidnapped six people from a residential compound belonging to a Russian aluminium company, Russia Aluminum (RUSAL) said Sunday.
 New York Rangers-30	province	New York-29	Jordan Staal scored a power-play goal in the second period and Pittsburgh goalie Marc-Andre Fleury made 26 saves, giving the Penguins a 2-0 victory Sunday over New York Rangers and a home- ice sweep of the first two games of their second-round NHL playoff series.
 French journalist Paul Legall-4	nationality	French-1	French journalist Paul Legall reported that all three hostages arrived safely at Athens International Airport.
-Los Angeles archdiocese-10	city	Los Angeles-9	His comments came two days after the Los Angeles archdiocese agreed to a record 660 million dollar (480 million euro) payout to 508 people who were sexually abused by priests i    n cases dating back to the 1940s.
+Los Angeles archdiocese-10	city	Los Angeles-9	His comments came two days after the Los Angeles archdiocese agreed to a record 660 million dollar (480 million euro) payout to 508 people who were sexually abused by priests in cases dating back to the 1940s.
 Finland's 4X5-kilometer cross-country relay team-11	nationality	Finland-6	Kuitunen was a member of Finland's 4X5-kilometer cross-country relay team that won the gold on Thursday.
 Spanish ad-7	nationality	Spanish-6	Obama countered with his own Spanish ad linking McCain to the extreme-right Republican wing, widely seen as anti-immigrant.
 Solomon Islands Prime Minister Manasseh Sogavare-11	nationality	Solomon Islands-7	The political future of controversial Solomon Islands Prime Minister Manasseh Sogavare was uncertain Monday after the resignation of nine ministers.
@@ -92,15 +95,17 @@ American Meat Institute-10	nationality	American-8	Janet Riley, a spokeswoman for
 Saudi oil supertanker-7	nationality	Saudi-5	The owner of a Saudi oil supertanker hijacked by Somali pirates over the weekend said the 25 crew members are safe and the ship is fully loaded with crude -- a cargo worth about $100 million at current prices.
 Dakhil Qassim, the mayor of the nearby town of Sinjar-21	jobTitle	mayor-15	Some 300 people were wounded in the blasts, said Dakhil Qassim, the mayor of the nearby town of Sinjar.
 Mayor Adrian M. Fenty-4	jobTitle	mayor-1	Mayor Adrian M. Fenty said he wanted a catchphrase that braids the themes of unity, energy and renaissance.
+Manhattan Portage bag-9	city	Manhattan-7	Q: I currently bring a Manhattan Portage bag ... I feel like the bags are from the 90's.
 
 Incorrect Results
 German Foreign Minister Frank-Walter Steinmeier, whose country-8	jobTitle	foreign minister-3	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 King breakfast-52	jobTitle	king-51	Dr. King had become very unpopular before his death, talking about things that black men did not have the right to talk about, George Hulse, aboard member of the Caribbean American Chamber of Commerce and Industry, said over bagels Friday at the chamber's King breakfast.
 Jordan Staal-2	nationality	Jordan-1	Jordan Staal scored a power-play goal in the second period and Pittsburgh goalie Marc-Andre Fleury made 26 saves, giving the Penguins a 2-0 victory Sunday over New York Rangers and a home- ice sweep of the first two games of their second-round NHL playoff series.
-Manhattan Portage bag-9	city	Manhattan-7	Q: I currently bring a Manhattan Portage bag ... I feel like the bags are from the 90's.
 German Foreign Minister Frank-Walter Steinmeier, whose country-8	nationality	German-1	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
+----DONE----
 
-High recall extractor results.
+recall
+Extractor results.
 Neither Correct nor Incorrect
 
 
@@ -130,7 +135,7 @@ Paul Taylor, chief economist-5	jobTitle	chief economist-5	Paul Taylor, chief eco
 External Relations Commissioner Benita Ferrero-Waldner-30	jobTitle	commissioner-28	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 the US economy-7	nationality	the us-6	But with with the US economy slowing while growth elsewhere in the world remains resilient, the dollar will be pressured, he added.
 Saudi oil supertanker-7	nationality	saudi-5	The owner of a Saudi oil supertanker hijacked by Somali pirates over the weekend said the 25 crew members are safe and the ship is fully loaded with crude -- a cargo worth about $100 million at current prices.
-Los Angeles archdiocese-10	city	los angeles-9	His comments came two days after the Los Angeles archdiocese agreed to a record 660 million dollar (480 million euro) payout to 508 people who were sexually abused by priests i    n cases dating back to the 1940s.
+Los Angeles archdiocese-10	city	los angeles-9	His comments came two days after the Los Angeles archdiocese agreed to a record 660 million dollar (480 million euro) payout to 508 people who were sexually abused by priests in cases dating back to the 1940s.
 John Alaimo, manager of a taxi repair shop-9	jobTitle	manager-4	John Alaimo, manager of a taxi repair shop in the Manhattan neighborhood, said the fans only blow hot air around, doing little to keep his mechanics cool.
 status of Kosovo-51	nationality	kosovo-51	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 Athens International Airport-15	city	athens-13	French journalist Paul Legall reported that all three hostages arrived safely at Athens International Airport.
@@ -144,18 +149,20 @@ Solomon Islands Prime Minister Manasseh Sogavare-11	jobTitle	prime minister-9	Th
 Dakhil Qassim, the mayor of the nearby town of Sinjar-21	jobTitle	mayor-15	Some 300 people were wounded in the blasts, said Dakhil Qassim, the mayor of the nearby town of Sinjar.
 Mayor Adrian M. Fenty-4	jobTitle	mayor-1	Mayor Adrian M. Fenty said he wanted a catchphrase that braids the themes of unity, energy and renaissance.
 French journalist Paul Legall-4	nationality	french-1	French journalist Paul Legall reported that all three hostages arrived safely at Athens International Airport.
+Spanish ad-7	nationality	spanish-6	Obama countered with his own Spanish ad linking McCain to the extreme-right Republican wing, widely seen as anti-immigrant.
 
 Incorrect Results
 Jordan Staal-2	nationality	jordan-1	Jordan Staal scored a power-play goal in the second period and Pittsburgh goalie Marc-Andre Fleury made 26 saves, giving the Penguins a 2-0 victory Sunday over New York Rangers and a home- ice sweep of the first two games of their second-round NHL playoff series.
 German Foreign Minister Frank-Walter Steinmeier, whose country-8	jobTitle	foreign minister-3	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 border town of Rafah-33	city	rafah-33	Some Palestinians were seen to use a bulldozer trying to open new passages into Egypt at the Egyptian- Gaza border on Friday as Egyptian troops moved to close the border town of Rafah, the pan- Arab television al-Jazeera reported.
-Spanish ad-7	nationality	spanish-6	Obama countered with his own Spanish ad linking McCain to the extreme-right Republican wing, widely seen as anti-immigrant.
 King breakfast-52	jobTitle	king-51	Dr. King had become very unpopular before his death, talking about things that black men did not have the right to talk about, George Hulse, aboard member of the Caribbean American Chamber of Commerce and Industry, said over bagels Friday at the chamber's King breakfast.
 German Foreign Minister Frank-Walter Steinmeier, whose country-8	nationality	german-1	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 Justice Department-14	jobTitle	justice-13	John Arterberry, executive deputy chief of the fraud section in the Justice Department, said federal prosecutors and the FBI had made progress on mortgage fraud.
 presidency of the EU-15	nationality	eu-15	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
+----DONE----
 
-High precision extractor results.
+precision
+Extractor results.
 Neither Correct nor Incorrect
 
 
@@ -183,7 +190,7 @@ Egyptian- Gaza border-20	city	Gaza-19	Some Palestinians were seen to use a bulld
 Russia Aluminum (RUSAL)-25	nationality	Russia-21	Gunmen have killed a driver and kidnapped six people from a residential compound belonging to a Russian aluminium company, Russia Aluminum (RUSAL) said Sunday.
 New York Rangers-30	province	New York-29	Jordan Staal scored a power-play goal in the second period and Pittsburgh goalie Marc-Andre Fleury made 26 saves, giving the Penguins a 2-0 victory Sunday over New York Rangers and a home- ice sweep of the first two games of their second-round NHL playoff series.
 French journalist Paul Legall-4	nationality	French-1	French journalist Paul Legall reported that all three hostages arrived safely at Athens International Airport.
-Los Angeles archdiocese-10	city	Los Angeles-9	His comments came two days after the Los Angeles archdiocese agreed to a record 660 million dollar (480 million euro) payout to 508 people who were sexually abused by priests i    n cases dating back to the 1940s.
+Los Angeles archdiocese-10	city	Los Angeles-9	His comments came two days after the Los Angeles archdiocese agreed to a record 660 million dollar (480 million euro) payout to 508 people who were sexually abused by priests in cases dating back to the 1940s.
 Finland's 4X5-kilometer cross-country relay team-11	nationality	Finland-6	Kuitunen was a member of Finland's 4X5-kilometer cross-country relay team that won the gold on Thursday.
 Spanish ad-7	nationality	Spanish-6	Obama countered with his own Spanish ad linking McCain to the extreme-right Republican wing, widely seen as anti-immigrant.
 Solomon Islands Prime Minister Manasseh Sogavare-11	nationality	Solomon Islands-7	The political future of controversial Solomon Islands Prime Minister Manasseh Sogavare was uncertain Monday after the resignation of nine ministers.
@@ -194,11 +201,12 @@ American Meat Institute-10	nationality	American-8	Janet Riley, a spokeswoman for
 Saudi oil supertanker-7	nationality	Saudi-5	The owner of a Saudi oil supertanker hijacked by Somali pirates over the weekend said the 25 crew members are safe and the ship is fully loaded with crude -- a cargo worth about $100 million at current prices.
 Dakhil Qassim, the mayor of the nearby town of Sinjar-21	jobTitle	mayor-15	Some 300 people were wounded in the blasts, said Dakhil Qassim, the mayor of the nearby town of Sinjar.
 Mayor Adrian M. Fenty-4	jobTitle	mayor-1	Mayor Adrian M. Fenty said he wanted a catchphrase that braids the themes of unity, energy and renaissance.
+Manhattan Portage bag-9	city	Manhattan-7	Q: I currently bring a Manhattan Portage bag ... I feel like the bags are from the 90's.
 
 Incorrect Results
 German Foreign Minister Frank-Walter Steinmeier, whose country-8	jobTitle	foreign minister-3	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
 King breakfast-52	jobTitle	king-51	Dr. King had become very unpopular before his death, talking about things that black men did not have the right to talk about, George Hulse, aboard member of the Caribbean American Chamber of Commerce and Industry, said over bagels Friday at the chamber's King breakfast.
 Jordan Staal-2	nationality	Jordan-1	Jordan Staal scored a power-play goal in the second period and Pittsburgh goalie Marc-Andre Fleury made 26 saves, giving the Penguins a 2-0 victory Sunday over New York Rangers and a home- ice sweep of the first two games of their second-round NHL playoff series.
-Manhattan Portage bag-9	city	Manhattan-7	Q: I currently bring a Manhattan Portage bag ... I feel like the bags are from the 90's.
 German Foreign Minister Frank-Walter Steinmeier, whose country-8	nationality	German-1	German Foreign Minister Frank-Walter Steinmeier, whose country holds the rotating presidency of the EU, along with EU foreign policy chief Javier Solana and External Relations Commissioner Benita Ferrero-Waldner were also expected to discuss issues including the Middle East, Iran's nuclear program and the future status of Kosovo with Rice.
+----DONE----
 
