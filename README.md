@@ -25,26 +25,19 @@ run command
 This will take a while the first time since it will download and resolve all the dependencies.
 
 ## Using ImplIE as a Dependency
-ImplIE can be added as a dependency in sbt by adding the following to the libraryDependencies.
+We haven't released ImplIE to maven, but it can be released locally.  From this repository run the following commands to
+release the project locally.
+
+    sbt
+    publish-local
+
+Then ImplIE can locally be added as a dependency in sbt by adding the following to the libraryDependencies.
 
     libraryDependencies ++= Seq(
         // other dependencies...
-        "edu.washington.cs.knowitall.implie" %% "implie" % "1.0.0",
+        "edu.washington.cs.knowitall.implie" %% "implie" % "1.0.0-SNAPSHOT",
         // other dependencies...
     )
-    
-## Running
-TODO
-
-## Options
-### High-recall and High-precision Versions
-TODO
-
-### Adding Custom Keywords
-TODO
-
-### Caching parses to speed up repeated extractions
-TODO
 
 ## Citing ImplIE
 TODO: add bibTex when paper is published
