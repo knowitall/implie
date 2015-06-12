@@ -22,6 +22,9 @@ object QuickExample {
     val extractor = ImplIELoader.defaultImplIE
     // Version that loads faster.
 //    val extractor = ImplIELoader.fastImplIE
+    // Other versions.
+    // ImplIELoader.highPrecisionImplIE // -- same as fastImplIE
+    // ImplIELoader.highRecallImplIE    // -- same as defaultImplIE
 
     for (sentence <- sentences) {
       val extractions = extractor.extractRelations(sentence)
