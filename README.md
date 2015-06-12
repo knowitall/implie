@@ -25,7 +25,7 @@ run command
 This will take a while the first time since it will download and resolve all the dependencies.
 
 ## Using ImplIE as a Dependency
-We have released ImplIE to maven, but it can be released locally.  From this repository run the following commands to
+We haven't released ImplIE to maven, but it can be released locally.  From this repository run the following commands to
 release the project locally.
 
     sbt
