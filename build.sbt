@@ -14,7 +14,6 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.2.1",
   "edu.stanford.nlp" % "stanford-corenlp" % "3.5.0",
   "edu.stanford.nlp" % "stanford-parser" % "3.5.0",
-  "edu.washington.cs.knowitall.openie" %% "openie" % "4.1.3",
   "edu.washington.cs.knowitall.taggers" % "taggers-core_2.10" % "0.4",
   "org.scala-lang" % "scala-compiler" % "2.10.2",
   "org.scala-lang" % "scala-reflect" % "2.10.2",
