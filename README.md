@@ -40,7 +40,11 @@ Then IMPLIE can locally be added as a dependency in sbt by adding the following 
     )
 
 ## Citing IMPLIE
-TODO: add bibTex when paper is published
+
+@article{soderlandlanguage,
+  title={A Language Model for Extracting Implicit Relations},
+  author={Soderland, Stephen and Kim, Gene L and Hawkins, Natalie}
+}
 
 ## Contributors
 * Gene Kim
